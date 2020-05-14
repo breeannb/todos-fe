@@ -10,13 +10,18 @@ export default class ListPage extends Component {
         await this.setState({ newToDo: e.target.value})
     }
 
+    handleAddSubmit = (e) => {
+        e.preventDefault();
+
+        // console.log(this.state.newToDo); able to log out newToDo upon submit button of user's input
+    }
+
     render() {
         return (
-            // console.log('hello', e.target.value); logs out input upon handlechange for add button
             <div>
                 
 
-                <form>
+                <form onSubmit={this.handleAddSubmit}>
 
                     {/* Add Button and Input for Add  */}
                     <label> 
