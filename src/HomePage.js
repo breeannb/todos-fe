@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react'
 import AuthPage from './AuthPage.js'
+import ListPage from './ListPage.js'
 
 export default class HomePage extends Component {
     
@@ -23,21 +24,30 @@ export default class HomePage extends Component {
             name: 'feed kitties',
             minutes_to_do: 2,
             completed: true
-            }]
+            }], 
+        newTodo: ''
     }  
 
   render() {
       console.log('hello', this.state.todos);
     return (
-      <ul>
-        <AuthPage /> 
-        {this.state.todos.map(task => 
-            <li key={JSON.stringify(task)}> 
+        <>
+        <div> 
+            <ListPage />
+        </div>
+        
+        <ul>
+            {this.state.todos.map(task => 
+             <li key={JSON.stringify(task)}> 
                 {task.name}
-            </li>)}
+             </li>)}
         
-        
-      </ul>
+        </ul>
+
+        <div>
+          <AuthPage /> 
+        </div>
+      </>
     )
   }
 }
